@@ -1,26 +1,48 @@
+::selection {
+  background-color: rgb(12, 164, 12);
+  color: white;
+}
+
+@keyframes slideUnderline {
+  from {
+    width: 0;
+    left: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 html {
   box-sizing: border-box;
 }
 
-body, h1, h2, h3, p {
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
   margin: 0;
   padding: 0;
 }
 
 body {
   box-sizing: border-box;
-  max-width: 620px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 64px 20px 80px;
+  padding: 48px 24px 90px;
   background-color: #0d0f11;
   color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
 
 a {
-  color: #00ff1e;
+  color: #ffffff;
   text-decoration: underline;
   text-decoration-color: #00ff1e;
   text-underline-offset: 2px;
@@ -35,29 +57,51 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+/* ---------- header ---------- */
+
 header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px 20px;
-  margin-bottom: 40px;
+  margin-bottom: 64px;
 }
 
-h1 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #f0f1f2;
-}
-
-nav a {
+.wordmark {
   color: #9aa1a8;
   text-decoration: none;
   font-size: 0.95rem;
 }
 
+.wordmark:hover {
+  color: #00ff1e;
+}
+
+nav a {
+  position: relative;
+  color: #9aa1a8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 2px;
+  background-color: #00ff1e;
+  width: 0;
+}
+
 nav a:hover {
-  color: #e2a640;
+  color: #f5f5f5;
+}
+
+nav a:hover::after {
+  animation: slideUnderline 0.3s ease forwards;
 }
 
 nav .sep {
@@ -65,14 +109,55 @@ nav .sep {
   margin: 0 6px;
 }
 
-.intro p {
-  margin-bottom: 14px;
-  color: #b7bcc1;
+/* ---------- hero ---------- */
+
+.hero {
+  margin-bottom: 45px;
 }
 
-.intro {
-  margin-bottom: 52px;
+.eyebrow {
+  font-size: 0.85rem;
+  color: #6d7378;
+  margin-bottom: 8px;
 }
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 700;
+  color: #f0f1f2;
+  line-height: 1.1;
+}
+
+.role {
+  font-size: 1.1rem;
+  color: #b7bcc1;
+  margin-top: 10px;
+  margin-bottom: 24px;
+}
+
+.hero p:not(.eyebrow):not(.role) {
+  color: #b7bcc1;
+  max-width: 560px;
+  margin-bottom: 12px;
+}
+
+.skills {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin-top: 28px;
+}
+
+.skills li {
+  font-size: 0.82rem;
+  color: #9aa1a8;
+  border: 1px solid #262b2f;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+/* ---------- section headings ---------- */
 
 h2 {
   font-size: 0.95rem;
@@ -82,16 +167,55 @@ h2 {
   margin-bottom: 24px;
 }
 
+section {
+  margin-bottom: 45px;
+  scroll-margin-top: 24px;
+}
+
+#about p {
+  color: #b7bcc1;
+  max-width: 640px;
+}
+
+/* ---------- expertise ---------- */
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 40px;
+}
+
+.expertise-item .num {
+  display: block;
+  font-size: 0.8rem;
+  color: #444a4f;
+  margin-bottom: 8px;
+}
+
+.expertise-item h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #f0f1f2;
+  margin-bottom: 8px;
+}
+
+.expertise-item p {
+  color: #b7bcc1;
+  font-size: 0.95rem;
+}
+
+/* ---------- projects ---------- */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 40px;
+}
+
 .project {
   padding-bottom: 26px;
   margin-bottom: 26px;
   border-bottom: 1px solid #1c1f22;
-}
-
-.project:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .project h3 {
@@ -121,16 +245,31 @@ h2 {
   color: #6d7378;
 }
 
+/* ---------- footer ---------- */
+
 footer {
-  margin-top: 60px;
+  margin-top: 20px;
   padding-top: 24px;
   border-top: 1px solid #1c1f22;
   color: #6d7378;
   font-size: 0.9rem;
 }
 
-@media (max-width: 480px) {
+/* ---------- responsive ---------- */
+
+@media (max-width: 640px) {
   body {
-    padding: 44px 18px 60px;
+    padding: 40px 20px 70px;
+  }
+
+  .expertise-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

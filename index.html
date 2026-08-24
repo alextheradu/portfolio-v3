@@ -9,15 +9,18 @@
       content="alex radu — builds pipelines, robots, and the occasional tool that annoys dark patterns."
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
   <body>
     <header>
-      <div class="header-main">
-        <p class="eyebrow">// portfolio :O</p>
-        <h1>Alex Radu</h1>
-        <p class="handle">full-stack developer, NJ</p>
-      </div>
+      <a class="wordmark" href="#top">alex radu</a>
       <nav>
+        <a href="#about">about</a>
+        <span class="sep">/</span>
+        <a href="#expertise">skills</a>
+        <span class="sep">/</span>
         <a href="#projects">projects</a>
         <span class="sep">/</span>
         <a href="https://github.com/alextheradu" target="_blank" rel="noopener"
@@ -41,93 +44,151 @@
     </header>
 
     <main>
-      <section class="intro">
+      <section class="hero" id="top">
+        <p class="eyebrow">// portfolio :O</p>
+        <h1>Alex Radu</h1>
+        <p class="role">Full-Stack Developer, NJ</p>
         <p>
-          I build cool apps (i think) like curator, my frc team's scouting app,
+          i build cool apps (i think) like curator, my frc team's scouting app,
           and more!
         </p>
+      </section>
+
+      <section id="about">
+        <h2>about</h2>
         <p>
-          building web apps, robotics tools, and practical software from New
-          Jersey. real products, real users.
+          im a junior at Pascack Hills High School and I lead infotech
+          (websites, scouting, etc) for FRC Team 1676, the Pascack Pioneers.
+          this past summer i interned in the shah lab at Memorial Sloan
+          Kettering, working on genomics pipelines. outside of that I founded
+          and run my school's Hack Club chapter, I'm a former Stardance
+          Ambassador for Hack Club (the ambassador program ended) and also run
+          YSWS programs (join
+          <a href="https://tagless.hackclub.com" target="_blank" rel="noopener"
+            >tagless</a
+          >!), I compete on the debate team, and I spend some of my downtime in
+          Fusion 360 and Bambu Studio designing things and then 3D printing
+          them. i also listen to a lot of music and do photography mostly with
+          my drone (dji m5p) and my iphone!
         </p>
+      </section>
+
+      <section id="expertise">
+        <h2>areas of expertise</h2>
+        <div class="expertise-grid">
+          <article class="expertise-item">
+            <span class="num">01</span>
+            <h3>Web Development</h3>
+            <p>
+              Full-stack with React, Next.js, Node.js, and PostgreSQL. From MVPs
+              to production platforms.
+            </p>
+          </article>
+          <article class="expertise-item">
+            <span class="num">02</span>
+            <h3>Robotics &amp; FRC</h3>
+            <p>
+              Scouting apps and internal tools for FIRST Robotics teams.
+              Real-time data and match strategy.
+            </p>
+          </article>
+          <article class="expertise-item">
+            <span class="num">03</span>
+            <h3>3D Modeling</h3>
+            <p>
+              Custom parts in Fusion 360, printed with Bambu Studio. Functional
+              components to presentation models.
+            </p>
+          </article>
+          <article class="expertise-item">
+            <span class="num">04</span>
+            <h3>Infrastructure</h3>
+            <p>
+              Nginx proxies, PM2 deployments, and reliable production system
+              management.
+            </p>
+          </article>
+        </div>
       </section>
 
       <section id="projects">
         <h2>things i've built</h2>
 
-        <article class="project">
-          <h3>
-            <a href="https://curatorfrc.com" target="_blank" rel="noopener"
-              >Curator</a
-            >
-          </h3>
-          <p>
-            An AI chatbot and assistant for FIRST Robotics teams, built to help
-            teams get quick, reliable answers during build season.
-          </p>
-          <p class="meta">frc · ai · next js</p>
-        </article>
+        <div class="project-grid">
+          <article class="project">
+            <h3>
+              <a href="https://curatorfrc.com" target="_blank" rel="noopener"
+                >Curator</a
+              >
+            </h3>
+            <p>
+              An AI chatbot and assistant for FIRST Robotics teams, built to
+              help teams get quick, reliable answers during build season.
+            </p>
+            <p class="meta">frc · ai · next js</p>
+          </article>
 
-        <article class="project">
-          <h3>
-            <a
-              href="https://tagless.hackclub.com"
-              target="_blank"
-              rel="noopener"
-              >tagless</a
-            >
-          </h3>
-          <p>
-            A Hack Club YSWS I run: build a website without using a single HTML
-            tag, ship it, and we mail you a luggage tag as a prize.
-          </p>
-          <p class="meta">hack club · javascript · html</p>
-        </article>
+          <article class="project">
+            <h3>
+              <a
+                href="https://tagless.hackclub.com"
+                target="_blank"
+                rel="noopener"
+                >tagless</a
+              >
+            </h3>
+            <p>
+              A Hack Club YSWS I run: build a website without using a single
+              HTML tag, ship it, and we mail you a luggage tag as a prize.
+            </p>
+            <p class="meta">hack club · javascript · html</p>
+          </article>
 
-        <article class="project">
-          <h3>
-            <a
-              href="https://github.com/alextheradu/shahlab-nf-scatac/"
-              target="_blank"
-              rel="noopener"
-              >DATAC pipeline</a
-            >
-          </h3>
-          <p>
-            Nextflow pipeline for demultiplexing ATAC and WGS reads from the
-            DATAC single-cell co-assay. Built during my summer internship in the
-            Shah lab at Memorial Sloan Kettering
-          </p>
-          <p class="meta">nextflow · nf-core · bioinformatics</p>
-        </article>
+          <article class="project">
+            <h3>
+              <a
+                href="https://github.com/alextheradu/shahlab-nf-scatac/"
+                target="_blank"
+                rel="noopener"
+                >DATAC pipeline</a
+              >
+            </h3>
+            <p>
+              Nextflow pipeline for demultiplexing ATAC and WGS reads from the
+              DATAC single-cell co-assay. Built during my summer internship in
+              the Shah lab at Memorial Sloan Kettering
+            </p>
+            <p class="meta">nextflow · nf-core · bioinformatics</p>
+          </article>
 
-        <article class="project">
-          <h3>
-            <a
-              href="https://github.com/PioneersTeam1676/1676-maneuver"
-              target="_blank"
-              rel="noopener"
-              >Pioneer Scouting</a
-            >
-          </h3>
-          <p>
-            Full rebuild of the scouting web app for the Pascack Pioneers (frc
-            1676). React and Express under the hood, with offline storage so it
-            still works in a scouting stand with no signal, and a Google OAuth
-            role system for pit scouts, drive teams, and leads.
-          </p>
-          <p class="meta">react · express · sqlite · dexie</p>
-        </article>
+          <article class="project">
+            <h3>
+              <a
+                href="https://github.com/PioneersTeam1676/1676-maneuver"
+                target="_blank"
+                rel="noopener"
+                >Pioneer Scouting</a
+              >
+            </h3>
+            <p>
+              Full rebuild of the scouting web app for the Pascack Pioneers (frc
+              1676). React and Express under the hood, with offline storage so
+              it still works in a scouting stand with no signal, and a Google
+              OAuth role system for pit scouts, drive teams, and leads.
+            </p>
+            <p class="meta">react · express · sqlite · dexie</p>
+          </article>
 
-        <article class="project">
-          <h3>Self-hosted infrastructure</h3>
-          <p>
-            A Docker and Nginx Proxy Manager setup that hosts my robotics team's
-            site and a handful of side projects across a few domains, all on
-            hardware I manage myself.
-          </p>
-          <p class="meta">docker · nginx · linux</p>
-        </article>
+          <article class="project">
+            <h3>Self-hosted infrastructure</h3>
+            <p>
+              A Docker and Nginx Proxy Manager setup that hosts my robotics
+              team's site and a handful of side projects across a few domains,
+              all on hardware I manage myself.
+            </p>
+            <p class="meta">docker · nginx · linux</p>
+          </article>
+        </div>
       </section>
     </main>
 
@@ -151,5 +212,7 @@
         >.
       </p>
     </footer>
+
+    <script src="index.js"></script>
   </body>
 </html>
