@@ -34,23 +34,41 @@
   }
 
   // ---------- entrance, strictly top to bottom ----------
+  gsap.set(
+    [
+      ".wordmark",
+      "nav a",
+      "nav .sep",
+      ".eyebrow",
+      ".hero h1",
+      ".role",
+      ".hero p:not(.eyebrow):not(.role)",
+      "#about h2",
+      "#about p",
+      "#expertise h2",
+      ".expertise-item",
+      "#projects h2",
+      ".project",
+      "footer p",
+    ],
+    { force3D: true }
+  );
+
   var tl = gsap.timeline({
-    defaults: { ease: "power2.out", duration: 0.5 },
+    defaults: { ease: "power1.out", duration: 0.45 },
   });
 
-  tl.from(".wordmark", { opacity: 0, y: 6 })
-    .from("nav a, nav .sep", { opacity: 0, y: 6, stagger: 0.03 }, "-=0.35")
-    .from(
-      ".eyebrow, .hero h1, .role",
-      { opacity: 0, y: 10, stagger: 0.08 },
-      "-=0.25"
-    )
-    .from(".hero p:not(.eyebrow):not(.role)", { opacity: 0, y: 10 }, "-=0.15")
-    .from("#about h2", { opacity: 0, y: 12 }, "-=0.1")
-    .from("#about p", { opacity: 0, y: 14 }, "-=0.25")
-    .from("#expertise h2", { opacity: 0, y: 12 }, "-=0.1")
-    .from(".expertise-item", { opacity: 0, y: 16, stagger: 0.08 }, "-=0.2")
-    .from("#projects h2", { opacity: 0, y: 12 }, "-=0.1")
-    .from(".project", { opacity: 0, y: 16, stagger: 0.08 }, "-=0.2")
-    .from("footer p", { opacity: 0, y: 10 }, "-=0.1");
+  tl.from(".wordmark", { opacity: 0, y: 8 })
+    .from("nav a, nav .sep", { opacity: 0, y: 8, stagger: 0.02 }, "<0.05")
+    .from(".eyebrow", { opacity: 0, y: 10 }, "<0.05")
+    .from(".hero h1", { opacity: 0, y: 10 }, "<0.05")
+    .from(".role", { opacity: 0, y: 10 }, "<0.06")
+    .from(".hero p:not(.eyebrow):not(.role)", { opacity: 0, y: 10 }, "<0.08")
+    .from("#about h2", { opacity: 0, y: 10 }, "<0.1")
+    .from("#about p", { opacity: 0, y: 10 }, "<0.08")
+    .from("#expertise h2", { opacity: 0, y: 10 }, "<0.12")
+    .from(".expertise-item", { opacity: 0, y: 12, stagger: 0.03 }, "<0.1")
+    .from("#projects h2", { opacity: 0, y: 10 }, "<0.1")
+    .from(".project", { opacity: 0, y: 12, stagger: 0.03 }, "<0.1")
+    .from("footer p", { opacity: 0, y: 10 }, "<0.15");
 })();
