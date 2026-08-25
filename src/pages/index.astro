@@ -1,3 +1,7 @@
+---
+import "../styles/global.css";
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,10 +12,9 @@
       name="description"
       content="alex radu — builds pipelines, robots, and the occasional tool that annoys dark patterns."
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
   <body>
     <header>
@@ -47,12 +50,7 @@
       <section class="hero" id="top">
         <p class="eyebrow"></p>
         <h1>Alex Radu</h1>
-        <p class="role">
-          <span class="hl"
-            ><span class="hl-bg" aria-hidden="true"></span
-            ><span class="hl-text">Full-Stack Developer</span></span
-          >, NJ
-        </p>
+        <p class="role">full stack web dev and hardware specialist 😎 (from nj!)</p>
         <p>
           i build cool apps (i think) like curator, my frc team's scouting app,
           and more!
@@ -65,16 +63,20 @@
           im a junior at Pascack Hills High School and I lead infotech
           (websites, scouting, etc) for FRC Team 1676 the Pascack Pi-oneers!
           this past summer i interned in the shah lab at Memorial Sloan
-          Kettering, working on <a href="#datac">genomics pipelines</a>. outside of that I founded
-          and run my school's Hack Club chapter (<a href="https://phhshack.club" target="_blank" rel="noopener"
+          Kettering, working on <a href="#datac">genomics pipelines</a>. outside
+          of that I founded and run my school's Hack Club chapter (<a
+            href="https://phhshack.club"
+            target="_blank"
+            rel="noopener"
             >here's our website</a
-          >!), also run YSWS programs (join
-          <a href="https://tagless.hackclub.com" target="_blank" rel="noopener"
+          >!), also run YSWS programs (join <a
+            href="https://tagless.hackclub.com"
+            target="_blank"
+            rel="noopener"
             >tagless</a
-          >!), and I spend some of my downtime in
-          Fusion 360 and Bambu Studio designing things and then 3D printing
-          them. i also listen to a lot of music and do photography mostly with
-          my drone (dji m5p) and my iphone!
+          >!), and I spend some of my downtime in Fusion 360 and Bambu Studio
+          designing things and then 3D printing them. i also listen to a lot of
+          music and do photography mostly with my drone (dji m5p) and my iphone!
         </p>
       </section>
 
@@ -245,17 +247,17 @@
 
     <footer>
       <p>
-        reach me on
-        <a href="https://github.com/alextheradu" target="_blank" rel="noopener"
+        reach me on <a
+          href="https://github.com/alextheradu"
+          target="_blank"
+          rel="noopener"
           >github</a
-        >, check out my photos and videos on
-        <a
+        >, check out my photos and videos on <a
           href="https://www.instagram.com/al3x_r4du/"
           target="_blank"
           rel="noopener"
           >instagram</a
-        >, and see me larp on
-        <a
+        >, and see me larp on <a
           href="https://www.linkedin.com/in/al3x-radu/"
           target="_blank"
           rel="noopener"
@@ -264,6 +266,6 @@
       </p>
     </footer>
 
-    <script src="index.js"></script>
+    <script is:inline src="/main.js"></script>
   </body>
 </html>
