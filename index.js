@@ -50,6 +50,7 @@
       "#projects h2",
       ".project",
       "footer p",
+      ".hl-bg",
     ],
     { force3D: true }
   );
@@ -63,10 +64,20 @@
     .from(".eyebrow", { opacity: 0, y: 10 }, "<0.05")
     .from(".hero h1", { opacity: 0, y: 10 }, "<0.05")
     .from(".role", { opacity: 0, y: 10 }, "<0.06")
-    .from(".hero p:not(.eyebrow):not(.role)", { opacity: 0, y: 10 }, "<0.08")
+    .to(
+      ".role .hl-bg",
+      { scaleX: 1, duration: 0.35, ease: "power2.out" },
+      "<0.15"
+    )
+    .from(".hero p:not(.eyebrow):not(.role)", { opacity: 0, y: 10 }, "<0.1")
     .from("#about h2", { opacity: 0, y: 10 }, "<0.1")
     .from("#about p", { opacity: 0, y: 10 }, "<0.08")
-    .from("#expertise h2", { opacity: 0, y: 10 }, "<0.12")
+    .to(
+      "#about .hl-bg",
+      { scaleX: 1, duration: 0.35, stagger: 0.08, ease: "power2.out" },
+      "<0.15"
+    )
+    .from("#expertise h2", { opacity: 0, y: 10 }, "<0.15")
     .from(".expertise-item", { opacity: 0, y: 12, stagger: 0.03 }, "<0.1")
     .from("#projects h2", { opacity: 0, y: 10 }, "<0.1")
     .from(".project", { opacity: 0, y: 12, stagger: 0.03 }, "<0.1")
