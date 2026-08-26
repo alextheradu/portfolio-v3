@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import ScrollReveal from "../components/ScrollReveal";
 ---
 
 <!doctype html>
@@ -92,34 +93,38 @@ import "../styles/global.css";
           <div class="expertise-row">
             <span class="num">01</span>
             <h3>Web Development</h3>
-            <p>
-              Full-stack with React, Next.js, Node.js, and PostgreSQL. From MVPs
-              to production platforms.
-            </p>
+            <ScrollReveal
+              client:visible={{ rootMargin: "600px 0px" }}
+              baseOpacity={0.15}
+              text="Full-stack with React, Next.js, Node.js, PostgreSQL, and some python."
+            />
           </div>
           <div class="expertise-row">
             <span class="num">02</span>
             <h3>Robotics &amp; FRC</h3>
-            <p>
-              Scouting apps and internal tools for FIRST Robotics teams.
-              Real-time data and match strategy.
-            </p>
+            <ScrollReveal
+              client:visible={{ rootMargin: "600px 0px" }}
+              baseOpacity={0.15}
+              text="Scouting apps and internal tools for FIRST Robotics teams. Real-time data and match strategy."
+            />
           </div>
           <div class="expertise-row">
             <span class="num">03</span>
             <h3>3D Modeling</h3>
-            <p>
-              Custom parts in Fusion 360, printed with Bambu Studio. Functional
-              components to presentation models.
-            </p>
+            <ScrollReveal
+              client:visible={{ rootMargin: "600px 0px" }}
+              baseOpacity={0.15}
+              text="Custom parts in Fusion 360, printed through Bambu Studio. (btw i have a p2s)"
+            />
           </div>
           <div class="expertise-row">
             <span class="num">04</span>
             <h3>Infrastructure</h3>
-            <p>
-              Nginx proxies, PM2 deployments, and reliable production system
-              management.
-            </p>
+            <ScrollReveal
+              client:visible={{ rootMargin: "600px 0px" }}
+              baseOpacity={0.15}
+              text="Nginx proxies, PM2 deployments, Docker containers, and system management."
+            />
           </div>
         </div>
       </section>
@@ -140,10 +145,11 @@ import "../styles/global.css";
                 <span>frc</span><span>ai</span><span>next js</span>
               </div>
             </div>
-            <p>
-              An AI chatbot and assistant for FIRST Robotics teams, built to
-              help teams get quick, reliable answers during build season.
-            </p>
+            <ScrollReveal
+              client:visible={{ rootMargin: "600px 0px" }}
+              baseOpacity={0.15}
+              text="An AI chatbot and assistant for FIRST Robotics teams, built to help teams get quick, reliable answers during build season."
+            />
           </div>
 
           <div class="project-row">
@@ -161,10 +167,11 @@ import "../styles/global.css";
                 <span>hack club</span><span>javascript</span><span>html</span>
               </div>
             </div>
-            <p>
-              A Hack Club YSWS I run: build a website without using a single
-              HTML tag, ship it, and we mail you a luggage tag as a prize.
-            </p>
+            <ScrollReveal
+              client:visible={{ rootMargin: "600px 0px" }}
+              baseOpacity={0.15}
+              text="A Hack Club YSWS I run: build a website without using a single HTML tag, ship it, and we mail you a luggage tag as a prize."
+            />
           </div>
 
           <div class="project-row" id="datac">
@@ -183,11 +190,11 @@ import "../styles/global.css";
                 ><span>bioinformatics</span>
               </div>
             </div>
-            <p>
-              a nextflow pipeline for demultiplexing ATAC and WGS reads from the
-              DATAC single-cell co-assay. built during my summer internship in
-              the Shah lab at Memorial Sloan Kettering (mskcc).
-            </p>
+            <ScrollReveal
+              client:visible={{ rootMargin: "600px 0px" }}
+              baseOpacity={0.15}
+              text="a nextflow pipeline for demultiplexing ATAC and WGS reads from the DATAC single-cell co-assay. built during my summer internship in the Shah lab at Memorial Sloan Kettering (mskcc)."
+            />
           </div>
 
           <div class="project-row">
@@ -206,12 +213,11 @@ import "../styles/global.css";
                 ><span>dexie</span>
               </div>
             </div>
-            <p>
-              Full rebuild of the scouting web app for the Pascack Pioneers (frc
-              1676). React and Express under the hood, with offline storage so
-              it still works in a scouting stand with no signal, and a Google
-              OAuth role system for pit scouts, drive teams, and leads.
-            </p>
+            <ScrollReveal
+              client:visible={{ rootMargin: "600px 0px" }}
+              baseOpacity={0.15}
+              text="Full rebuild of the scouting web app for the Pascack Pioneers (frc 1676). React and Express under the hood, with offline storage so it still works in a scouting stand with no signal, and a Google OAuth role system for pit scouts, drive teams, and leads."
+            />
           </div>
 
           <div class="project-row">
@@ -230,7 +236,11 @@ import "../styles/global.css";
                 ><span>dexie</span>
               </div>
             </div>
-            <p>AI Travel meal planning app built at HackMIT Blueprint 2026!</p>
+            <ScrollReveal
+              client:visible={{ rootMargin: "600px 0px" }}
+              baseOpacity={0.15}
+              text="AI Travel meal planning app built at HackMIT Blueprint 2026!"
+            />
           </div>
 
           <div class="project-row">
@@ -241,11 +251,11 @@ import "../styles/global.css";
                 <span>docker</span><span>nginx</span><span>linux</span>
               </div>
             </div>
-            <p>
-              A Docker and Nginx Proxy Manager setup that hosts my robotics
-              team's site and a handful of side projects across a few domains,
-              all on hardware I manage myself.
-            </p>
+            <ScrollReveal
+              client:visible={{ rootMargin: "600px 0px" }}
+              baseOpacity={0.15}
+              text="A Docker and Nginx Proxy Manager setup that hosts my robotics team's site and a handful of side projects across a few domains, all on hardware I manage myself."
+            />
           </div>
         </div>
       </section>

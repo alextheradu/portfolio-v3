@@ -323,6 +323,12 @@ section {
   max-width: 620px;
 }
 
+/* ---------- ScrollReveal words ---------- */
+
+.word {
+  display: inline-block;
+}
+
 /* ---------- footer ---------- */
 
 footer {
