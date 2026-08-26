@@ -17,6 +17,25 @@ html {
   box-sizing: border-box;
 }
 
+/* keep in sync with the selector list in public/main.js — hidden
+   until main.js's entrance timeline is ready to animate them in */
+html.gsap-loading .wordmark,
+html.gsap-loading nav a,
+html.gsap-loading nav .sep,
+html.gsap-loading .eyebrow,
+html.gsap-loading .hero h1,
+html.gsap-loading .role,
+html.gsap-loading .hero p:not(.eyebrow):not(.role),
+html.gsap-loading #about h2,
+html.gsap-loading #about p,
+html.gsap-loading #expertise h2,
+html.gsap-loading .expertise-row,
+html.gsap-loading #projects h2,
+html.gsap-loading .project-row,
+html.gsap-loading footer p {
+  opacity: 0;
+}
+
 body,
 h1,
 h2,
