@@ -29,4 +29,4 @@ how to edit site:
 3. change the number, title, link, tags, and description
 4. run `npm run build` before pushing
 
-that's pretty much it! thanks for checking out the repo (and possibly reading all the way down here).
+that's pretty much it! thanks for checking out the repo
