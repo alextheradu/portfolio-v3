@@ -1,6 +1,36 @@
 ---
 import "../styles/global.css";
 import ScrollReveal from "../components/ScrollReveal";
+import rawGoals from "../data/goals.json";
+
+// resolves "current" for any goal backed by a live source (fetched at
+// build time, so it updates whenever the site is rebuilt/deployed —
+// no client-side fetch, no CORS/runtime-failure risk for visitors).
+// falls back to the goal's `fallback` value if the source is down.
+async function resolveCurrent(goal: (typeof rawGoals)[number]) {
+  if (goal.source === "quizzr-users") {
+    try {
+      const res = await fetch("https://quizzr.org/api/users/count");
+      const count = Number(await res.text());
+      if (Number.isFinite(count)) return count;
+    } catch {
+      // fall through to fallback below
+    }
+    return goal.fallback ?? 0;
+  }
+  return goal.current ?? 0;
+}
+
+const goals = await Promise.all(
+  rawGoals.map(async (goal) => {
+    const current = await resolveCurrent(goal);
+    const percent = Math.min(100, Math.round((current / goal.target) * 100));
+    const count = `${current}/${goal.target}${goal.unit ? " " + goal.unit : ""}`;
+    return { label: goal.label, count, percent };
+  })
+);
+
+const goalsYear = new Date().getFullYear();
 ---
 
 <!doctype html>
@@ -40,6 +70,8 @@ import ScrollReveal from "../components/ScrollReveal";
         <a href="#expertise">skills</a>
         <span class="sep">/</span>
         <a href="#projects">projects</a>
+        <span class="sep">/</span>
+        <a href="#goals">goals</a>
         <span class="sep">/</span>
         <a href="https://github.com/alextheradu" target="_blank" rel="noopener"
           >github</a
@@ -264,6 +296,29 @@ import ScrollReveal from "../components/ScrollReveal";
           </div>
         </div>
       </section>
+
+      <section id="goals">
+        <div class="section-head">
+          <h2>personal goals</h2>
+          <span class="year">{goalsYear}</span>
+        </div>
+        <div class="goal-list">
+          {
+            goals.map((goal) => (
+              <div class="goal-row">
+                <div class="goal-head">
+                  <h3>{goal.label}</h3>
+                  <span class="count">{goal.count}</span>
+                </div>
+                <div class="goal-bar">
+                  <div class="goal-bar-fill" style={{ width: `${goal.percent}%` }} />
+                </div>
+                <p class="goal-caption">{goal.percent}% complete</p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
     </main>
 
     <footer>
@@ -276,10 +331,12 @@ import ScrollReveal from "../components/ScrollReveal";
           href="https://www.instagram.com/al3x_r4du/"
           target="_blank"
           rel="noopener">instagram</a
-        >, and see me larp on <a
+        >, see me larp on <a
           href="https://www.linkedin.com/in/al3x-radu/"
           target="_blank"
           rel="noopener">linkedin</a
+        >, or email me at <a href="mailto:alex@alexradu.co"
+          >alex@alexradu.co</a
         >.
       </p>
     </footer>

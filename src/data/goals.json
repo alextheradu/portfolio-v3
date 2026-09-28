@@ -1,0 +1,24 @@
+[
+  {
+    "label": "grow Quizzr users",
+    "target": 250,
+    "unit": "users",
+    "source": "quizzr-users",
+    "fallback": 211
+  },
+  {
+    "label": "attend hackathons",
+    "current": 1,
+    "target": 2
+  },
+  {
+    "label": "publish technical tutorials",
+    "current": 3,
+    "target": 10
+  },
+  {
+    "label": "ship new full-stack projects",
+    "current": 5,
+    "target": 7
+  }
+]
