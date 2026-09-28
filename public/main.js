@@ -62,6 +62,8 @@
       ".expertise-row",
       "#projects h2",
       ".project-row",
+      "#goals h2",
+      ".goal-row",
       "footer p",
     ],
     { force3D: true }
@@ -110,6 +112,7 @@
   revealOnEnter("#about p", { y: 10 });
   revealOnEnter("#expertise h2", {});
   revealOnEnter("#projects h2", {});
+  revealOnEnter("#goals h2", {});
   revealOnEnter("footer p", {});
 
   // rows: pre-hide up front (so nothing flashes before its batch enters),
@@ -133,4 +136,5 @@
 
   revealRows(".expertise-row");
   revealRows(".project-row");
+  revealRows(".goal-row");
 })();

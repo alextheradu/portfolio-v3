@@ -32,6 +32,8 @@ html.gsap-loading #expertise h2,
 html.gsap-loading .expertise-row,
 html.gsap-loading #projects h2,
 html.gsap-loading .project-row,
+html.gsap-loading #goals h2,
+html.gsap-loading .goal-row,
 html.gsap-loading footer p {
   opacity: 0;
 }
@@ -321,6 +323,77 @@ section {
 .project-row p {
   color: #b7bcc1;
   max-width: 620px;
+}
+
+/* ---------- section heading + accessory (e.g. year) ---------- */
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.section-head .year {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  color: #3a4045;
+}
+
+/* ---------- goals: progress list ---------- */
+
+.goal-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.goal-row {
+  padding: 18px 0;
+  border-bottom: 1px solid #1c1f22;
+}
+
+.goal-row:first-child {
+  padding-top: 0;
+}
+
+.goal-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.goal-head h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f0f1f2;
+}
+
+.goal-head .count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  color: #6d7378;
+  white-space: nowrap;
+}
+
+.goal-bar {
+  height: 6px;
+  border-radius: 3px;
+  background-color: #1c1f22;
+  overflow: hidden;
+}
+
+.goal-bar-fill {
+  height: 100%;
+  background-color: #00ff1e;
+  border-radius: 3px;
+}
+
+.goal-caption {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #6d7378;
 }
 
 /* ---------- ScrollReveal words ---------- */
