@@ -15,6 +15,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
+COPY astro.config.mjs ./
 COPY --from=builder /app/dist ./dist
 
 ENV HOST=0.0.0.0
