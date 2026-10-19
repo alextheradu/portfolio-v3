@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     preview: {
-      allowedHosts: ['alexradu.dev', 'alexradu.app', 'alexradu.com']
+      allowedHosts: true
     }
   }
 });
