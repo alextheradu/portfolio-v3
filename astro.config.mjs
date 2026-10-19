@@ -5,5 +5,10 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()]
+  integrations: [react()],
+  vite: {
+    preview: {
+      allowedHosts: ['alexradu.dev', 'alexradu.app', 'alexradu.com']
+    }
+  }
 });
