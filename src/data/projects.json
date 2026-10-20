@@ -14,6 +14,10 @@
     ],
     "links": [
       {
+        "label": "view on github",
+        "href": "https://github.com/alextheradu/curator"
+      },
+      {
         "label": "visit curatorfrc.com",
         "href": "https://curatorfrc.com"
       }
@@ -81,6 +85,10 @@
       {
         "label": "view on github",
         "href": "https://github.com/PioneersTeam1676/1676-maneuver"
+      },
+      {
+        "label": "visit the app",
+        "href": "https://scouting.team1676.org"
       }
     ],
     "image": "/projects/scouting.png"
@@ -93,7 +101,7 @@
       "hackathon",
       "travel"
     ],
-    "summary": "ai travel meal planning app built at HackMIT Blueprint 2026!",
+    "summary": "ai travel meal planning app built at HackMIT Blueprint 2026! (the deployment is no longer functional)",
     "highlights": [
       "built at HackMIT Blueprint 2026"
     ],
