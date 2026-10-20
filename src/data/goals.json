@@ -1,5 +1,10 @@
 [
   {
+    "label": "hours shipped to my yswses this year",
+    "current": 167,
+    "target": 350
+  },
+  {
     "label": "grow Quizzr users",
     "target": 250,
     "unit": "users",
