@@ -1,5 +1,27 @@
 [
   {
+    "id": "datac",
+    "title": "DATAC pipeline",
+    "tags": [
+      "nextflow",
+      "nf-core",
+      "bioinformatics"
+    ],
+    "summary": "a nextflow pipeline for demultiplexing ATAC and WGS reads from the DATAC single-cell co-assay. built during my summer internship in the Shah lab at Memorial Sloan Kettering (mskcc).",
+    "highlights": [
+      "demultiplexes ATAC and WGS reads",
+      "built for the DATAC single-cell co-assay",
+      "written during my summer internship at msk"
+    ],
+    "links": [
+      {
+        "label": "view on github",
+        "href": "https://github.com/alextheradu/shahlab-nf-scatac/"
+      }
+    ],
+    "image": "/projects/datac.png"
+  },
+  {
     "id": "curator",
     "title": "Curator",
     "tags": [
@@ -46,26 +68,25 @@
     "image": "/projects/tagless.png"
   },
   {
-    "id": "datac",
-    "title": "DATAC pipeline",
+    "id": "cont.d",
+    "title": "cont.d",
     "tags": [
-      "nextflow",
-      "nf-core",
-      "bioinformatics"
+      "hack club",
+      "javascript",
+      "html"
     ],
-    "summary": "a nextflow pipeline for demultiplexing ATAC and WGS reads from the DATAC single-cell co-assay. built during my summer internship in the Shah lab at Memorial Sloan Kettering (mskcc).",
+    "summary": "a Hack Club YSWS i run: remake your old project (or someone else's), ship it, and get prizes from the shop.",
     "highlights": [
-      "demultiplexes ATAC and WGS reads",
-      "built for the DATAC single-cell co-assay",
-      "written during my summer internship at msk"
+      "remake your old project (or someone else's)",
+      "ship it and get prizes from the shop"
     ],
     "links": [
       {
-        "label": "view on github",
-        "href": "https://github.com/alextheradu/shahlab-nf-scatac/"
+        "label": "visit cont.d",
+        "href": "https://contd.hackclub.com"
       }
     ],
-    "image": "/projects/datac.png"
+    "image": "/projects/contd.png"
   },
   {
     "id": "scouting",
