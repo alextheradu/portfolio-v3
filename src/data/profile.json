@@ -169,15 +169,15 @@
   "life": [
     {
       "caption": "drone",
-      "src": "/photos/drone.jpg"
+      "src": "/photos/drone.jpeg"
     },
     {
-      "caption": "3d prints",
-      "src": "/photos/prints.jpg"
+      "caption": "3d printing",
+      "src": "/photos/3d-printer.png"
     },
     {
-      "caption": "robot season",
-      "src": "/photos/robot.jpg"
+      "caption": "robotics",
+      "src": "/photos/robotics.jpeg"
     },
     {
       "caption": "hack club",
