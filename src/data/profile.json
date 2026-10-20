@@ -1,0 +1,211 @@
+{
+  "cycle": [
+    "pipelines",
+    "robots",
+    "scouting apps",
+    "tools that annoy dark patterns"
+  ],
+  "currently": [
+    "leading infotech for frc 1676",
+    "running cont.d and tagless at hack club",
+    "growing quizzr toward 250 users",
+    "building out curator"
+  ],
+  "timeline": [
+    {
+      "when": "2026",
+      "what": "HackMIT Blueprint",
+      "note": "built mappetite"
+    },
+    {
+      "when": "summer 2026",
+      "what": "shah lab @ memorial sloan kettering",
+      "note": "wrote the DATAC nextflow pipeline"
+    },
+    {
+      "when": "ongoing",
+      "what": "founder, phhs hack club",
+      "note": "running ysws programs for teens: tagless, cont.d"
+    }
+  ],
+  "marquee": [
+    "react",
+    "next.js",
+    "node",
+    "postgres",
+    "python",
+    "nextflow",
+    "docker",
+    "nginx",
+    "pm2",
+    "fusion 360",
+    "bambu studio",
+    "express",
+    "sqlite",
+    "linux"
+  ],
+  "gear": [
+    {
+      "name": "web",
+      "items": [
+        [
+          "react",
+          "react",
+          "https://react.dev"
+        ],
+        [
+          "next.js",
+          "nextdotjs",
+          "https://nextjs.org"
+        ],
+        [
+          "node.js",
+          "nodedotjs",
+          "https://nodejs.org"
+        ],
+        [
+          "express",
+          "express",
+          "https://expressjs.com"
+        ],
+        [
+          "postgresql",
+          "postgresql",
+          "https://www.postgresql.org"
+        ],
+        [
+          "sqlite",
+          "sqlite",
+          "https://www.sqlite.org"
+        ],
+        [
+          "python",
+          "python",
+          "https://www.python.org"
+        ]
+      ]
+    },
+    {
+      "name": "hosting",
+      "items": [
+        [
+          "docker",
+          "docker",
+          "https://www.docker.com"
+        ],
+        [
+          "traefik",
+          "traefikproxy",
+          "https://traefik.io/traefik"
+        ],
+        [
+          "dokploy",
+          null,
+          "https://dokploy.com"
+        ],
+        [
+          "nginx proxy manager",
+          "nginxproxymanager",
+          "https://nginxproxymanager.com"
+        ],
+        [
+          "pm2",
+          "pm2",
+          "https://pm2.keymetrics.io"
+        ],
+        [
+          "linux",
+          "linux",
+          "https://www.kernel.org"
+        ]
+      ]
+    },
+    {
+      "name": "bioinfo",
+      "items": [
+        [
+          "nextflow",
+          "nextflow",
+          "https://www.nextflow.io"
+        ]
+      ]
+    },
+    {
+      "name": "making",
+      "items": [
+        [
+          "fusion 360",
+          "autodesk",
+          "https://www.autodesk.com/products/fusion-360"
+        ],
+        [
+          "bambu studio",
+          "bambulab",
+          "https://bambulab.com/en/download/studio"
+        ],
+        [
+          "bambu p2s",
+          "bambulab",
+          "https://bambulab.com/en/p2s"
+        ]
+      ]
+    },
+    {
+      "name": "capture",
+      "items": [
+        [
+          "dji m5p",
+          "dji",
+          "https://www.dji.com"
+        ],
+        [
+          "iphone",
+          "apple",
+          "https://www.apple.com/iphone"
+        ]
+      ]
+    }
+  ],
+  "life": [
+    {
+      "caption": "drone",
+      "src": "/photos/drone.jpg"
+    },
+    {
+      "caption": "3d prints",
+      "src": "/photos/prints.jpg"
+    },
+    {
+      "caption": "robot season",
+      "src": "/photos/robot.jpg"
+    },
+    {
+      "caption": "hack club",
+      "src": "/photos/hackclub.jpg"
+    }
+  ],
+  "homeserver": "my home server runs dokploy, with traefik handling routing and certs in front of docker containers. it hosts my team's scouting app and a handful of side projects, on hardware and a network i manage myself.",
+  "hackclub": [
+    {
+      "name": "phhs hack club",
+      "role": "president",
+      "text": "i founded and run my school's hack club chapter.",
+      "href": "https://phhshack.club",
+      "label": "phhshack.club"
+    },
+    {
+      "name": "cont.d",
+      "role": "ysws",
+      "text": "remake your old project (or someone else's), ship it, and get prizes from the shop",
+      "href": "https://contd.hackclub.com",
+      "label": "contd.hackclub.com"
+    },
+    {
+      "name": "tagless",
+      "role": "ysws",
+      "text": "build a website without using a single html tag, ship it, and we mail you a luggage tag.",
+      "href": "https://tagless.hackclub.com",
+      "label": "tagless.hackclub.com"
+    }
+  ]
+}

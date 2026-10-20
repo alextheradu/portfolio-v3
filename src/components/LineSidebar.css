@@ -1,0 +1,60 @@
+.line-sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.line-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-size: 0.9rem;
+  color: #6d7378;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.line-sidebar__marker {
+  width: 14px;
+  height: 1px;
+  background: #444a4f;
+  transition:
+    width 0.25s ease,
+    background-color 0.2s ease;
+}
+
+.line-sidebar__index {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+.line-sidebar__item:hover {
+  color: #f0f1f2;
+}
+
+.line-sidebar__item:hover .line-sidebar__marker {
+  width: 24px;
+  background: #9aa1a8;
+}
+
+.line-sidebar__item[aria-current="true"] {
+  color: #00ff1e;
+}
+
+.line-sidebar__item[aria-current="true"] .line-sidebar__marker {
+  width: 32px;
+  background: #00ff1e;
+}
+
+.line-sidebar__item:focus-visible {
+  outline: 1px solid #e2a640;
+  outline-offset: 3px;
+}
