@@ -36,6 +36,8 @@
       anchors: true,
     });
 
+    window.__lenis = lenis;
+
     if (hasScrollTrigger) {
       lenis.on("scroll", ScrollTrigger.update);
     }

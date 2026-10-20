@@ -1,0 +1,124 @@
+[
+  {
+    "id": "curator",
+    "title": "Curator",
+    "tags": [
+      "frc",
+      "ai",
+      "next js"
+    ],
+    "summary": "an AI chatbot and assistant for FIRST Robotics teams, built to help teams get quick, reliable answers during build season without stifling innovation. this tool is specifically designed to work alongside students, not do the work for them.",
+    "highlights": [
+      "quick, reliable answers during build season",
+      "designed to work alongside students, not do the work for them"
+    ],
+    "links": [
+      {
+        "label": "visit curatorfrc.com",
+        "href": "https://curatorfrc.com"
+      }
+    ],
+    "image": "/projects/curator.png"
+  },
+  {
+    "id": "tagless",
+    "title": "tagless",
+    "tags": [
+      "hack club",
+      "javascript",
+      "html"
+    ],
+    "summary": "a Hack Club YSWS i run: build a website without using a single HTML tag, ship it, and we mail you a luggage tag as a prize.",
+    "highlights": [
+      "teens build a site with zero HTML tags",
+      "ship it and get a luggage tag in the mail"
+    ],
+    "links": [
+      {
+        "label": "visit tagless",
+        "href": "https://tagless.hackclub.com"
+      }
+    ],
+    "image": "/projects/tagless.png"
+  },
+  {
+    "id": "datac",
+    "title": "DATAC pipeline",
+    "tags": [
+      "nextflow",
+      "nf-core",
+      "bioinformatics"
+    ],
+    "summary": "a nextflow pipeline for demultiplexing ATAC and WGS reads from the DATAC single-cell co-assay. built during my summer internship in the Shah lab at Memorial Sloan Kettering (mskcc).",
+    "highlights": [
+      "demultiplexes ATAC and WGS reads",
+      "built for the DATAC single-cell co-assay",
+      "written during my summer internship at msk"
+    ],
+    "links": [
+      {
+        "label": "view on github",
+        "href": "https://github.com/alextheradu/shahlab-nf-scatac/"
+      }
+    ],
+    "image": "/projects/datac.png"
+  },
+  {
+    "id": "scouting",
+    "title": "Pioneer Scouting",
+    "tags": [
+      "react",
+      "express",
+      "sqlite",
+      "dexie"
+    ],
+    "summary": "full rebuild of the scouting web app for the Pascack Pioneers (frc 1676). React and Express under the hood, with offline storage so it still works in a scouting stand with no signal, and a Google OAuth role system for pit scouts, drive teams, and leads.",
+    "highlights": [
+      "offline-first: keeps working with no signal in the stands",
+      "google oauth roles for pit scouts, drive teams, and leads"
+    ],
+    "links": [
+      {
+        "label": "view on github",
+        "href": "https://github.com/PioneersTeam1676/1676-maneuver"
+      }
+    ],
+    "image": "/projects/scouting.png"
+  },
+  {
+    "id": "mappetite",
+    "title": "Mappetite",
+    "tags": [
+      "ai",
+      "hackathon",
+      "travel"
+    ],
+    "summary": "ai travel meal planning app built at HackMIT Blueprint 2026!",
+    "highlights": [
+      "built at HackMIT Blueprint 2026"
+    ],
+    "links": [
+      {
+        "label": "view on github",
+        "href": "https://github.com/eesazahed/mappetite-ai"
+      }
+    ],
+    "image": "/projects/mappetite.png"
+  },
+  {
+    "id": "infra",
+    "title": "Home server",
+    "tags": [
+      "dokploy",
+      "traefik",
+      "docker"
+    ],
+    "summary": "a home server running dokploy with traefik in front of docker containers. it hosts my robotics team's scouting app and a handful of side projects across a few domains, all on hardware and networks i manage myself.",
+    "highlights": [
+      "dokploy for deploys, traefik for routing and certs",
+      "hosts the scouting app and side projects across a few domains"
+    ],
+    "links": [],
+    "image": "/projects/infra.png"
+  }
+]

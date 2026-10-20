@@ -1,7 +1,11 @@
 ---
 import "../styles/global.css";
 import ScrollReveal from "../components/ScrollReveal";
+import SectionNav from "../components/SectionNav";
+import * as si from "simple-icons";
 import rawGoals from "../data/goals.json";
+import projects from "../data/projects.json";
+import profile from "../data/profile.json";
 
 // resolves "current" for any goal backed by a live source (fetched at
 // build time, so it updates whenever the site is rebuilt/deployed —
@@ -25,12 +29,32 @@ const goals = await Promise.all(
   rawGoals.map(async (goal) => {
     const current = await resolveCurrent(goal);
     const percent = Math.min(100, Math.round((current / goal.target) * 100));
-    const count = `${current}/${goal.target}${goal.unit ? " " + goal.unit : ""}`;
-    return { label: goal.label, count, percent };
+    return {
+      label: goal.label,
+      current,
+      suffix: `/${goal.target}${goal.unit ? " " + goal.unit : ""}`,
+      percent,
+    };
   })
 );
 
+const icon = (slug: string | null) => {
+  if (!slug) return "";
+  const i = (si as any)["si" + slug[0].toUpperCase() + slug.slice(1)];
+  return i ? `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${i.path}"/></svg>` : "";
+};
+
 const goalsYear = new Date().getFullYear();
+
+const sections = [
+  { id: "about", label: "about" },
+  { id: "hackclub", label: "hack club" },
+  { id: "expertise", label: "skills" },
+  { id: "projects", label: "projects" },
+  { id: "gear", label: "gear" },
+  { id: "life", label: "photos" },
+  { id: "goals", label: "goals" },
+];
 ---
 
 <!doctype html>
@@ -62,17 +86,11 @@ const goalsYear = new Date().getFullYear();
     ></script>
   </head>
   <body>
+    <div class="progress" aria-hidden="true"></div>
+
     <header>
       <a class="wordmark" href="#top">// portfolio :O</a>
-      <nav>
-        <!--<a href="#about">about</a>
-        <span class="sep">/</span>
-        <a href="#expertise">skills</a>
-        <span class="sep">/</span>
-        <a href="#projects">projects</a>
-        <span class="sep">/</span>
-        <a href="#goals">goals</a>-->
-        <!-- <span class="sep">/</span> -->
+      <nav class="social">
         <a href="https://github.com/alextheradu" target="_blank" rel="noopener"
           >github</a
         >
@@ -91,6 +109,11 @@ const goalsYear = new Date().getFullYear();
       </nav>
     </header>
 
+    <!-- left rail: ReactBits line-sidebar section nav (wide screens only) -->
+    <aside class="rail">
+      <SectionNav client:load sections={sections} />
+    </aside>
+
     <main>
       <section class="hero" id="top">
         <p class="eyebrow"></p>
@@ -99,30 +122,67 @@ const goalsYear = new Date().getFullYear();
           full stack web dev and hardware specialist 😎 (from nj!)
         </p>
         <p>
-          i build cool apps (i think) like curator, my frc team's scouting app,
-          and more!
+          i build pipelines, robots, and scouting apps, like curator, my frc team's scouting app, and more! i also run
+          ysws programs at hack club, where teens ship real projects and get
+          prizes in the mail.
         </p>
       </section>
 
       <section id="about">
         <h2>about</h2>
         <p>
-          i'm a junior at pascack hills high school and I lead infotech
-          (websites, scouting, etc) for frc team 1676 the pascack pi-oneers!
-          this past summer i interned in the shah lab at memorial sloan
-          kettering, working on <a href="#datac">genomics pipelines</a>. outside
-          of that I founded and run my school's hack club chapter (<a
+          junior at pascack hills high school, from nj. i lead infotech for frc
+          team 1676, interned in the shah lab at memorial sloan kettering on <a href="#datac-row">genomics pipelines</a>, and run hack club things on the side (<a
             href="https://phhshack.club"
             target="_blank"
-            rel="noopener">here's our website</a
-          >!), also run YSWS programs (join <a
-            href="https://tagless.hackclub.com"
+            rel="noopener">phhshack.club</a
+          >, <a
+            href="https://contd.hackclub.com"
             target="_blank"
-            rel="noopener">tagless</a
-          >!), and I spend some of my downtime in Fusion 360 and Bambu Studio
-          designing things and then 3D printing them. i also listen to a lot of
-          music and do photography mostly with my drone (dji m5p) and my iphone!
+            rel="noopener">cont.d</a
+          >). off the clock: fusion 360, 3d printing, music, and drone photos.
         </p>
+
+        <ol class="timeline">
+          <li>
+            <span class="when">now</span>
+            <span class="body">
+              {profile.currently.map((c) => <span class="what">{c}</span>)}
+            </span>
+          </li>
+          {
+            profile.timeline.map((t) => (
+              <li>
+                <span class="when">{t.when}</span>
+                <span class="body">
+                  <span class="what">{t.what}</span>
+                  <span class="note">{t.note}</span>
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section id="hackclub">
+        <h2>hack club</h2>
+        <p class="lead">
+          i founded my school's chapter and i run ysws ("you ship, we ship")
+          programs where teens build and ship real projects, then get something
+          in the mail.
+        </p>
+        <div class="hc-list">
+          {
+            profile.hackclub.map((h) => (
+              <a class="hc-row" href={h.href} target="_blank" rel="noopener">
+                <span class="hc-role">{h.role}</span>
+                <span class="hc-name">{h.name}</span>
+                <span class="hc-text">{h.text}</span>
+                <span class="hc-link">{h.label} ↗</span>
+              </a>
+            ))
+          }
+        </div>
       </section>
 
       <section id="expertise">
@@ -161,139 +221,84 @@ const goalsYear = new Date().getFullYear();
             <ScrollReveal
               client:visible={{ rootMargin: "600px 0px" }}
               baseOpacity={0.15}
-              text="nginx proxies, PM2 deployments, docker containers, and system management."
+              text="a home server running dokploy and traefik, docker containers, nginx proxies, PM2, and general system management."
             />
           </div>
         </div>
       </section>
 
       <section id="projects">
-        <h2>things i've built</h2>
+        <h2>things i've built <span class="hint">click one</span></h2>
 
         <div class="project-list">
-          <div class="project-row">
-            <div class="project-head">
-              <span class="index">01</span>
-              <h3>
-                <a href="https://curatorfrc.com" target="_blank" rel="noopener"
-                  >Curator</a
-                >
-              </h3>
-              <div class="tags">
-                <span>frc</span><span>ai</span><span>next js</span>
+          {
+            projects.map((p, i) => (
+              <div
+                class="project-row"
+                id={p.id === "datac" ? "datac-row" : undefined}
+                data-project={p.id}
+                role="button"
+                tabindex="0"
+                aria-haspopup="dialog"
+              >
+                <div class="project-head">
+                  <span class="index">{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{p.title}</h3>
+                  <span class="open-hint" aria-hidden="true">
+                    ↗
+                  </span>
+                  <div class="tags">
+                    {p.tags.map((t) => (
+                      <span>{t}</span>
+                    ))}
+                  </div>
+                </div>
+                <ScrollReveal
+                  client:visible={{ rootMargin: "600px 0px" }}
+                  baseOpacity={0.15}
+                  text={p.summary}
+                />
               </div>
-            </div>
-            <ScrollReveal
-              client:visible={{ rootMargin: "600px 0px" }}
-              baseOpacity={0.15}
-              text="an AI chatbot and assistant for FIRST Robotics teams, built to help teams get quick, reliable answers during build season without stifling innovation. this tool is specifically designed to work alongside students, not do the work for them."
-            />
-          </div>
+            ))
+          }
+        </div>
+      </section>
 
-          <div class="project-row">
-            <div class="project-head">
-              <span class="index">02</span>
-              <h3>
-                <a
-                  href="https://tagless.hackclub.com"
-                  target="_blank"
-                  rel="noopener">tagless</a
-                >
-              </h3>
-              <div class="tags">
-                <span>hack club</span><span>javascript</span><span>html</span>
+      <section id="gear">
+        <h2>tools &amp; gear</h2>
+        <div class="gear-list">
+          {
+            profile.gear.map((g) => (
+              <div class="gear-row">
+                <span class="gear-name">{g.name}</span>
+                <ul class="gear-items">
+                  {g.items.map(([label, slug, href]) => (
+                    <li>
+                      <a href={href} target="_blank" rel="noopener">
+                        <Fragment set:html={icon(slug)} />
+                        {label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-            <ScrollReveal
-              client:visible={{ rootMargin: "600px 0px" }}
-              baseOpacity={0.15}
-              text="a Hack Club YSWS i run: build a website without using a single HTML tag, ship it, and we mail you a luggage tag as a prize."
-            />
-          </div>
+            ))
+          }
+        </div>
+        <p class="homeserver">{profile.homeserver}</p>
+      </section>
 
-          <div class="project-row" id="datac">
-            <div class="project-head">
-              <span class="index">03</span>
-              <h3>
-                <a
-                  href="https://github.com/alextheradu/shahlab-nf-scatac/"
-                  target="_blank"
-                  rel="noopener">DATAC pipeline</a
-                >
-              </h3>
-              <div class="tags">
-                <span>nextflow</span><span>nf-core</span><span
-                  >bioinformatics</span
-                >
-              </div>
-            </div>
-            <ScrollReveal
-              client:visible={{ rootMargin: "600px 0px" }}
-              baseOpacity={0.15}
-              text="a nextflow pipeline for demultiplexing ATAC and WGS reads from the DATAC single-cell co-assay. built during my summer internship in the Shah lab at Memorial Sloan Kettering (mskcc)."
-            />
-          </div>
-
-          <div class="project-row">
-            <div class="project-head">
-              <span class="index">04</span>
-              <h3>
-                <a
-                  href="https://github.com/PioneersTeam1676/1676-maneuver"
-                  target="_blank"
-                  rel="noopener">Pioneer Scouting</a
-                >
-              </h3>
-              <div class="tags">
-                <span>react</span><span>express</span><span>sqlite</span><span
-                  >dexie</span
-                >
-              </div>
-            </div>
-            <ScrollReveal
-              client:visible={{ rootMargin: "600px 0px" }}
-              baseOpacity={0.15}
-              text="full rebuild of the scouting web app for the Pascack Pioneers (frc 1676). React and Express under the hood, with offline storage so it still works in a scouting stand with no signal, and a Google OAuth role system for pit scouts, drive teams, and leads."
-            />
-          </div>
-
-          <div class="project-row">
-            <div class="project-head">
-              <span class="index">05</span>
-              <h3>
-                <a
-                  href="https://github.com/eesazahed/mappetite-ai"
-                  target="_blank"
-                  rel="noopener">Mappetite</a
-                >
-              </h3>
-              <div class="tags">
-                <span>react</span><span>express</span><span>sqlite</span><span
-                  >dexie</span
-                >
-              </div>
-            </div>
-            <ScrollReveal
-              client:visible={{ rootMargin: "600px 0px" }}
-              baseOpacity={0.15}
-              text="ai travel meal planning app built at HackMIT Blueprint 2026!"
-            />
-          </div>
-
-          <div class="project-row">
-            <div class="project-head">
-              <span class="index">06</span>
-              <h3>Self-hosted infrastructure</h3>
-              <div class="tags">
-                <span>docker</span><span>nginx</span><span>linux</span>
-              </div>
-            </div>
-            <ScrollReveal
-              client:visible={{ rootMargin: "600px 0px" }}
-              baseOpacity={0.15}
-              text="a docker and nginx proxy manager setup that hosts my robotics team's scouting app and a handful of side projects across a few domains, all on hardware and networks i manage myself."
-            />
-          </div>
+      <section id="life">
+        <h2>photos</h2>
+        <div class="life-grid">
+          {
+            profile.life.map((l, i) => (
+              <figure class="life-tile" style={{ "--i": i }}>
+                <img src={l.src} alt={l.caption} loading="lazy" />
+                <figcaption>{l.caption}</figcaption>
+              </figure>
+            ))
+          }
         </div>
       </section>
 
@@ -308,10 +313,19 @@ const goalsYear = new Date().getFullYear();
               <div class="goal-row">
                 <div class="goal-head">
                   <h3>{goal.label}</h3>
-                  <span class="count">{goal.count}</span>
+                  <span class="count">
+                    <span class="count-num" data-to={goal.current}>
+                      {goal.current}
+                    </span>
+                    {goal.suffix}
+                  </span>
                 </div>
                 <div class="goal-bar">
-                  <div class="goal-bar-fill" style={{ width: `${goal.percent}%` }} />
+                  <div
+                    class="goal-bar-fill"
+                    data-percent={goal.percent}
+                    style={{ width: `${goal.percent}%` }}
+                  />
                 </div>
                 <p class="goal-caption">{goal.percent}% complete</p>
               </div>
@@ -341,6 +355,17 @@ const goalsYear = new Date().getFullYear();
       </p>
     </footer>
 
+    <dialog id="project-dialog" aria-labelledby="pd-title">
+      <div class="pd-body"></div>
+    </dialog>
+    <script
+      is:inline
+      type="application/json"
+      id="projects-data"
+      set:html={JSON.stringify(projects)}
+    />
+
     <script is:inline src="/main.js"></script>
+    <script is:inline src="/extras.js"></script>
   </body>
 </html>
