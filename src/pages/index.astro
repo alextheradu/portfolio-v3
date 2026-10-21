@@ -178,7 +178,7 @@ const sections = [
                 <span class="hc-role">{h.role}</span>
                 <span class="hc-name">{h.name}</span>
                 <span class="hc-text">{h.text}</span>
-                <span class="hc-link">{h.label} ↗</span>
+                <span class="hc-link">{h.label}<i class="arrow-ne" aria-hidden="true"></i></span>
               </a>
             ))
           }
@@ -244,9 +244,7 @@ const sections = [
                 <div class="project-head">
                   <span class="index">{String(i + 1).padStart(2, "0")}</span>
                   <h3>{p.title}</h3>
-                  <span class="open-hint" aria-hidden="true">
-                    ↗
-                  </span>
+                  <span class="open-hint" aria-hidden="true"><i class="arrow-ne"></i></span>
                   <div class="tags">
                     {p.tags.map((t) => (
                       <span>{t}</span>

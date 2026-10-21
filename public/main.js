@@ -60,6 +60,7 @@
       ".hero p:not(.eyebrow):not(.role)",
       "#about h2",
       "#about p",
+      ".timeline li",
       "#expertise h2",
       ".expertise-row",
       "#projects h2",
@@ -136,6 +137,7 @@
     });
   };
 
+  revealRows(".timeline li");
   revealRows(".expertise-row");
   revealRows(".project-row");
   revealRows(".goal-row");

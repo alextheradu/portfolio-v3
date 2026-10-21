@@ -51,6 +51,9 @@
   var projects = JSON.parse($("#projects-data").textContent);
   var lastFocus = null;
 
+  // warm the cache so a project's image is already there when it opens
+  projects.forEach(function (p) { if (p.image) new Image().src = p.image; });
+
   var el = function (tag, cls, text) {
     var n = document.createElement(tag);
     if (cls) n.className = cls;
@@ -61,13 +64,16 @@
   function fill(p, index) {
     body.textContent = "";
     var media = el("div", "pd-media");
-    media.appendChild(el("span", "pd-index", String(index + 1).padStart(2, "0")));
+    var idx = el("span", "pd-index", String(index + 1).padStart(2, "0"));
     if (p.image) {
       var img = el("img");
+      img.decoding = "sync";
       img.src = p.image;
       img.alt = p.title + " screenshot";
-      img.addEventListener("error", function () { img.remove(); });
+      img.addEventListener("error", function () { img.remove(); media.appendChild(idx); });
       media.appendChild(img);
+    } else {
+      media.appendChild(idx);
     }
     body.appendChild(media);
 
@@ -95,7 +101,8 @@
     }
     var links = el("div", "pd-links");
     (p.links || []).forEach(function (l) {
-      var a = el("a", null, l.label + " ↗");
+      var a = el("a", null, l.label);
+      a.appendChild(el("i", "arrow-ne"));
       a.href = l.href; a.target = "_blank"; a.rel = "noopener";
       links.appendChild(a);
     });
