@@ -28,6 +28,7 @@ html.gsap-loading .role,
 html.gsap-loading .hero p:not(.eyebrow):not(.role),
 html.gsap-loading #about h2,
 html.gsap-loading #about p,
+html.gsap-loading .timeline li,
 html.gsap-loading #expertise h2,
 html.gsap-loading .expertise-row,
 html.gsap-loading #projects h2,
@@ -697,10 +698,15 @@ dialog.closing::backdrop {
 }
 
 .pd-highlights li::before {
-  content: "→";
+  content: "";
   position: absolute;
   left: 0;
-  color: #f0f1f2;
+  top: 0.55em;
+  width: 0.85em;
+  height: 0.85em;
+  background: #f0f1f2;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6h8M6.5 2.5L10 6l-3.5 3.5'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6h8M6.5 2.5L10 6l-3.5 3.5'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .pd-links {
@@ -934,4 +940,15 @@ dialog.closing::backdrop {
   dialog::backdrop {
     animation: none;
   }
+}
+
+.arrow-ne {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-left: 0.25em;
+  vertical-align: -0.1em;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l5-5M4 3.5h4.5V8'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3.5 8.5l5-5M4 3.5h4.5V8'/%3E%3C/svg%3E") center / contain no-repeat;
 }
