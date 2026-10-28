@@ -7,10 +7,6 @@ import rawGoals from "../data/goals.json";
 import projects from "../data/projects.json";
 import profile from "../data/profile.json";
 
-// resolves "current" for any goal backed by a live source (fetched at
-// build time, so it updates whenever the site is rebuilt/deployed —
-// no client-side fetch, no CORS/runtime-failure risk for visitors).
-// falls back to the goal's `fallback` value if the source is down.
 async function resolveCurrent(goal: (typeof rawGoals)[number]) {
   if (goal.source === "quizzr-users") {
     try {
