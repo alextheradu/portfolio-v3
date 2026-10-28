@@ -20,19 +20,20 @@ npm run preview:start
 Astro handles most of the page as static html. That keeps the setup small while still
 letting me use React where I lwk need to
 
-## Docker / Dokploy
+## Docker
 
-Dokploy can deploy this project using the included `Dockerfile`. It builds the static
-Astro site and serves `dist/` with Astro's Node preview server on port `3000`. Set the
-application port to `3000` in Dokploy; no runtime environment variables are required.
+Docker can deploy this project using the included `Dockerfile`. It builds the static
+Astro site and serves `dist/` with Astro's Node preview server on port `3000`. If using Dokploy, 
+set the application port to `3000`.
 
 ## changing the content
 
 how to edit site:
 
-1. open `src/pages/index.astro`
-2. copy an existing project row
-3. change the number, title, link, tags, and description
-4. run `npm run build` before pushing
+1. don't unless youre alex
+2. open `src/pages/index.astro`
+3. copy an existing project row
+4. change the number, title, link, tags, and description
+5. run `npm run build` before pushing
 
 that's pretty much it! thanks for checking out the repo
