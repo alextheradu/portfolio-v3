@@ -63,6 +63,10 @@
       {
         "label": "visit tagless",
         "href": "https://tagless.hackclub.com"
+      },
+      {
+        "label": "view on github",
+        "href": "https://github.com/alextheradu/tagless-public"
       }
     ],
     "image": "/projects/tagless.png"
