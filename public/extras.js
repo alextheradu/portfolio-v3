@@ -145,3 +145,76 @@
     });
   });
 })();
+
+// ---------- blog: latest posts from the rss feed, fetched on load ----------
+(function () {
+  var list = document.getElementById("blog-list");
+  if (!list || !window.fetch || !window.DOMParser) return;
+
+  var empty = function (msg) {
+    list.innerHTML = "";
+    var p = document.createElement("p");
+    p.className = "blog-empty";
+    p.textContent = msg;
+    list.appendChild(p);
+  };
+  var text = function (el, tag) {
+    var n = el.getElementsByTagName(tag)[0];
+    return n ? n.textContent.trim() : "";
+  };
+
+  fetch("/blog/rss.xml")
+    .then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.text();
+    })
+    .then(function (xml) {
+      var doc = new DOMParser().parseFromString(xml, "application/xml");
+      var items = Array.prototype.slice.call(doc.getElementsByTagName("item"), 0, 3);
+      if (!items.length) return empty("coming soon™");
+      list.innerHTML = "";
+      items.forEach(function (it, i) {
+        var a = document.createElement("a");
+        a.className = "project-row blog-row";
+        a.href = text(it, "link");
+
+        var head = document.createElement("div");
+        head.className = "project-head";
+        var idx = document.createElement("span");
+        idx.className = "index";
+        idx.textContent = String(i + 1).padStart(2, "0");
+        var h3 = document.createElement("h3");
+        h3.textContent = text(it, "title") || "untitled";
+        var hint = document.createElement("span");
+        hint.className = "open-hint";
+        hint.setAttribute("aria-hidden", "true");
+        hint.innerHTML = '<i class="arrow-ne"></i>';
+        var tags = document.createElement("div");
+        tags.className = "tags";
+        var d = new Date(text(it, "pubDate"));
+        if (!isNaN(d)) {
+          var s = document.createElement("span");
+          s.textContent = d
+            .toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+            .toLowerCase();
+          tags.appendChild(s);
+        }
+        head.appendChild(idx);
+        head.appendChild(h3);
+        head.appendChild(hint);
+        head.appendChild(tags);
+        a.appendChild(head);
+
+        var desc = text(it, "description");
+        if (desc) {
+          var p = document.createElement("p");
+          p.textContent = desc;
+          a.appendChild(p);
+        }
+        list.appendChild(a);
+      });
+    })
+    .catch(function () {
+      empty("couldn't load posts right now.");
+    });
+})();

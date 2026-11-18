@@ -34,28 +34,6 @@ const goals = await Promise.all(
   })
 );
 
-async function loadPosts() {
-  try {
-    const res = await fetch("https://alexradu.co/blog/feed.json", {
-      signal: AbortSignal.timeout(5000),
-    });
-    const feed = await res.json();
-    return (feed.items ?? []).slice(0, 3).map((it: any) => ({
-      title: it.title,
-      url: it.url,
-      summary: it.summary ?? "",
-      date: it.date_published
-        ? new Date(it.date_published)
-            .toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
-            .toLowerCase()
-        : "",
-    }));
-  } catch {
-    return [];
-  }
-}
-const posts = await loadPosts();
-
 const icon = (slug: string | null) => {
   if (!slug) return "";
   const i = (si as any)["si" + slug[0].toUpperCase() + slug.slice(1)];
@@ -326,27 +304,9 @@ const sections = [
           <h2>blog</h2>
           <span class="year">latest</span>
         </div>
-        {
-          posts.length === 0 ? (
-            <p class="blog-empty">coming soon™</p>
-          ) : (
-            <div class="project-list">
-              {posts.map((p, i) => (
-                <a class="project-row blog-row" href={p.url}>
-                  <div class="project-head">
-                    <span class="index">{String(i + 1).padStart(2, "0")}</span>
-                    <h3>{p.title}</h3>
-                    <span class="open-hint" aria-hidden="true"><i class="arrow-ne"></i></span>
-                    <div class="tags">
-                      <span>{p.date}</span>
-                    </div>
-                  </div>
-                  {p.summary && <p>{p.summary}</p>}
-                </a>
-              ))}
-            </div>
-          )
-        }
+        <div class="project-list" id="blog-list" aria-live="polite">
+          <p class="blog-empty">loading…</p>
+        </div>
         <a class="blog-all" href="/blog">all posts<i class="arrow-ne" aria-hidden="true"></i></a>
       </section>
 
