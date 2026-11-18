@@ -46,12 +46,12 @@
 }
 
 .line-sidebar__item[aria-current="true"] {
-  color: #8ea4d2;
+  color: #4fb868;
 }
 
 .line-sidebar__item[aria-current="true"] .line-sidebar__marker {
   width: 32px;
-  background: #8ea4d2;
+  background: #4fb868;
 }
 
 .line-sidebar__item:focus-visible {

@@ -34,6 +34,28 @@ const goals = await Promise.all(
   })
 );
 
+async function loadPosts() {
+  try {
+    const res = await fetch("https://alexradu.co/blog/feed.json", {
+      signal: AbortSignal.timeout(5000),
+    });
+    const feed = await res.json();
+    return (feed.items ?? []).slice(0, 3).map((it: any) => ({
+      title: it.title,
+      url: it.url,
+      summary: it.summary ?? "",
+      date: it.date_published
+        ? new Date(it.date_published)
+            .toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+            .toLowerCase()
+        : "",
+    }));
+  } catch {
+    return [];
+  }
+}
+const posts = await loadPosts();
+
 const icon = (slug: string | null) => {
   if (!slug) return "";
   const i = (si as any)["si" + slug[0].toUpperCase() + slug.slice(1)];
@@ -300,18 +322,32 @@ const sections = [
       </section>
 
       <section id="blog">
-        <h2>blog</h2>
-        <a class="blog-link" href="/blog">
-          <span class="blog-kicker">writing</span>
-          <span class="blog-title">
-            <span class="blog-text">read the blog</span>
-            <span class="blog-cursor" aria-hidden="true"></span>
-          </span>
-          <span class="blog-sub">notes on pipelines, robots, and shipping things</span>
-          <span class="blog-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </a>
+        <div class="section-head">
+          <h2>blog</h2>
+          <span class="year">latest</span>
+        </div>
+        {
+          posts.length === 0 ? (
+            <p class="blog-empty">coming soon™</p>
+          ) : (
+            <div class="project-list">
+              {posts.map((p, i) => (
+                <a class="project-row blog-row" href={p.url}>
+                  <div class="project-head">
+                    <span class="index">{String(i + 1).padStart(2, "0")}</span>
+                    <h3>{p.title}</h3>
+                    <span class="open-hint" aria-hidden="true"><i class="arrow-ne"></i></span>
+                    <div class="tags">
+                      <span>{p.date}</span>
+                    </div>
+                  </div>
+                  {p.summary && <p>{p.summary}</p>}
+                </a>
+              ))}
+            </div>
+          )
+        }
+        <a class="blog-all" href="/blog">all posts<i class="arrow-ne" aria-hidden="true"></i></a>
       </section>
 
       <section id="goals">
