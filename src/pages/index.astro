@@ -49,6 +49,7 @@ const sections = [
   { id: "projects", label: "projects" },
   { id: "gear", label: "gear" },
   { id: "life", label: "photos" },
+  { id: "blog", label: "blog" },
   { id: "goals", label: "goals" },
 ];
 ---
@@ -87,6 +88,8 @@ const sections = [
     <header>
       <a class="wordmark" href="#top">// portfolio :O</a>
       <nav class="social">
+        <a href="/blog">blog</a>
+        <span class="sep">/</span>
         <a href="https://github.com/alextheradu" target="_blank" rel="noopener"
           >github</a
         >
@@ -294,6 +297,21 @@ const sections = [
             ))
           }
         </div>
+      </section>
+
+      <section id="blog">
+        <h2>blog</h2>
+        <a class="blog-link" href="/blog">
+          <span class="blog-kicker">writing</span>
+          <span class="blog-title">
+            <span class="blog-text">read the blog</span>
+            <span class="blog-cursor" aria-hidden="true"></span>
+          </span>
+          <span class="blog-sub">notes on pipelines, robots, and shipping things</span>
+          <span class="blog-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
       </section>
 
       <section id="goals">
